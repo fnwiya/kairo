@@ -11,6 +11,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "kairo"
 	app.Usage = "warm up postgresql"
+	app.Version = "0.0.1"
 	app.Action = func(c *cli.Context) error {
 		fmt.Println("hello")
 		return nil
