@@ -12,6 +12,16 @@ func main() {
 	app.Name = "kairo"
 	app.Usage = "warm up postgresql"
 	app.Version = "0.0.1"
+	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name:  "database, d",
+			Usage: "dbname",
+		},
+		cli.StringFlag{
+			Name:  "table, t",
+			Usage: "tablename",
+		},
+	}
 	app.Action = func(c *cli.Context) error {
 		fmt.Println("hello")
 		return nil
