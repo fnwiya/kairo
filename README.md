@@ -1,2 +1,2 @@
 # kairo
-warmup query builder
+warm up postgresql
