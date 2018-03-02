@@ -22,12 +22,13 @@ func main() {
 			Usage: "tablename",
 		},
 	}
-	app.Action = func(c *cli.Context) error {
-		fmt.Println("hello")
-		return nil
-	}
+	app.Action = warmup
 	err := app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func warmup(c *cli.Context) {
+	fmt.Println("hello")
 }
