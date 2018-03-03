@@ -36,5 +36,6 @@ func main() {
 }
 
 func warmup(c *cli.Context) {
-	fmt.Println("hello")
+	fmt.Println(c.String("database"))
+	fmt.Println(c.String("table"))
 }
