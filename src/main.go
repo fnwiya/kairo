@@ -1,7 +1,9 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
+	_ "github.com/lib/pq"
 	"github.com/urfave/cli"
 	"log"
 	"os"
@@ -36,6 +38,16 @@ func main() {
 }
 
 func warmup(c *cli.Context) {
+	db, err := sql.Open("postgres", "user= dbname= password= sslmode=disable")
+	checkError(err)
+	defer db.Close()
 	fmt.Println(c.String("database"))
 	fmt.Println(c.String("table"))
+}
+
+func checkError(err error) {
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "fatal: error: %s", err.Error())
+		os.Exit(1)
+	}
 }
