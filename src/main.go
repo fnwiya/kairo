@@ -22,7 +22,13 @@ func main() {
 			Usage: "tablename",
 		},
 	}
+	app.Before = func(c *cli.Context) error {
+		return nil
+	}
 	app.Action = warmup
+	app.After = func(c *cli.Context) error {
+		return nil
+	}
 	err := app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
